@@ -19,4 +19,9 @@ public class JSONElementMap
     {
         return this.values.get(this.values.size()-1);
     }
+
+    public int size()
+    {
+        return names.size();
+    }
 }

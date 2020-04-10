@@ -1,7 +1,5 @@
 package json;
 
-import structures.JSONAttrMap;
-
 public class JSONRoot extends JSONElement
 {
     public JSONRoot() throws Exception

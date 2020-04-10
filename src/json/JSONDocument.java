@@ -25,11 +25,25 @@ public class JSONDocument
 
     protected String traverseJSON(JSONElement element, String pstring)
     {
+
+        if(element.hasAttributes())
+        {
+            for(int i=0; i<element.attributes.size(); i++)
+            {
+                pstring = pstring + ""+element.attributes.keys+"="+element.attributes.values+"";
+            }
+        }
+
+        if(element.hasTextnode())
+        {
+            pstring = pstring + element.datum;
+        }
+
         if(element.hasChildren())
         {
             pstring = pstring + " {\"" + element.name + "\":";
 
-            for(int i=0; i<element.children.names.size(); i++)
+            for(int i=0; i<element.children.size(); i++)
             {
                 pstring = traverseJSON(element.children.values.get(i), pstring);
             }
@@ -45,7 +59,7 @@ public class JSONDocument
         {
             pstring = pstring + " {\"" + element.name + "\":";
 
-            for(int i=0; i<element.children.names.size(); i++)
+            for(int i=0; i<element.children.size(); i++)
             {
                 pstring = traverseXML(element.children.values.get(i), pstring);
             }

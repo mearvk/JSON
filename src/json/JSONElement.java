@@ -1,6 +1,6 @@
 package json;
 
-import structures.JSONAttrMap;
+import structures.JSONAttributeMap;
 import structures.JSONElementMap;
 
 public class JSONElement extends JSONObject
@@ -13,7 +13,7 @@ public class JSONElement extends JSONObject
 
     public JSONElementMap children = new JSONElementMap();
 
-    public JSONAttrMap attributes = new JSONAttrMap();
+    public JSONAttributeMap attributes = new JSONAttributeMap();
 
     //
 
@@ -99,6 +99,16 @@ public class JSONElement extends JSONObject
         return this.children.names.size()>0;
     }
 
+    public Boolean hasAttributes()
+    {
+        return this.attributes.keys.size()>0;
+    }
+
+    public Boolean hasTextnode()
+    {
+        return this.datum!=null;
+    }
+
     public JSONElementMap getChildren()
     {
         return this.children;
@@ -109,7 +119,7 @@ public class JSONElement extends JSONObject
         return this.namespace;
     }
 
-    public JSONAttrMap getAttributes()
+    public JSONAttributeMap getAttributes()
     {
         return this.attributes;
     }
