@@ -28,13 +28,5 @@ public class JSONRoot extends JSONElement
         }
     }
 
-    public JSONNamespace getNamespace()
-    {
-        return this.namespace;
-    }
 
-    public JSONAttrMap getAttributes()
-    {
-        return this.attributes;
-    }
 }

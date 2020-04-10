@@ -9,9 +9,13 @@ public class JSONElement extends JSONObject
 
     public JSONNamespace namespace;
 
+    public JSONData datum;
+
     public JSONElementMap children = new JSONElementMap();
 
     public JSONAttrMap attributes = new JSONAttrMap();
+
+    //
 
     public JSONElement()
     {
@@ -22,6 +26,8 @@ public class JSONElement extends JSONObject
     {
         this.name = name;
     }
+
+    //
 
     public JSONElement getFirstChild()
     {
@@ -40,7 +46,27 @@ public class JSONElement extends JSONObject
 
     public void setAttribute(JSONAttribute attr)
     {
+        this.attributes.keys.add(attr.key);
 
+        this.attributes.values.add(attr.value);
+    }
+
+    public JSONElement addElement(JSONElement element, JSONData datum, JSONAttribute...attrs)
+    {
+        this.children.names.add(element.name);
+
+        this.children.values.add(element);
+
+        this.datum = datum;
+
+        for(JSONAttribute attribute : attrs)
+        {
+            this.attributes.keys.add(attribute.key);
+
+            this.attributes.values.add(attribute.value);
+        }
+
+        return element;
     }
 
     public JSONElement addElement(JSONElement element, JSONAttribute...attrs)

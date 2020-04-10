@@ -14,7 +14,7 @@ public class Main
 
             new JSONHarness.Test001();
 
-            //new JSONHarness.Test002();
+            new JSONHarness.Test002();
 
             //new JSONHarness.Test003();
 
